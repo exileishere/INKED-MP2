@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="INKED.API/INKED.API.csproj" />
+  <Project Path="INKED.Application/INKED.Application.csproj" />
+  <Project Path="INKED.Domain/INKED.Domain.csproj" />
+  <Project Path="INKED.Infrastructure/INKED.Infrastructure.csproj" />
+</Solution>
