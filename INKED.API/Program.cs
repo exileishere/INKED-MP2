@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using INKED.Infrastructure.Data;
+using INKED.API.Configurations;
 // Marco
 using INKED.Application.Interfaces;
 using INKED.Application.Services;
@@ -15,6 +16,9 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<INKEDDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("INKEDConnection")));
+
+// Billing module (Rashel): Orders, Invoices, Payments
+builder.Services.AddBillingModule();
 
 // Marco: ProductionTeams, Staff, SampleApprovals, OrderProductionAssignments
 builder.Services.AddScoped<IProductionTeamRepository, ProductionTeamRepository>();
