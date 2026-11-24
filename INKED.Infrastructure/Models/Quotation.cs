@@ -1,27 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace INKED.Domain.Entities.dbo;
 
-namespace INKED.Infrastructure.Models;
-
-public partial class Quotation
+/// <summary>
+/// Domain representation used by the Application layer. EF Core continues to map
+/// the database-first entity in INKED.Infrastructure.Models.Quotation.
+/// </summary>
+public class Quotation
 {
     public int QuotationId { get; set; }
-
     public int InquiryId { get; set; }
-
     public int PreparedByUserId { get; set; }
-
     public DateTime DateIssued { get; set; }
-
     public decimal TotalAmount { get; set; }
-
-    public string Status { get; set; } = null!;
-
-    public virtual Inquiry Inquiry { get; set; } = null!;
-
-    public virtual Order? Order { get; set; }
-
-    public virtual UserAccount PreparedByUser { get; set; } = null!;
-
-    public virtual ICollection<QuotationItem> QuotationItems { get; set; } = new List<QuotationItem>();
+    public string Status { get; set; } = string.Empty;
 }

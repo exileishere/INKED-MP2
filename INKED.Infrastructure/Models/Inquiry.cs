@@ -1,33 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace INKED.Domain.Entities.dbo;
 
-namespace INKED.Infrastructure.Models;
-
-public partial class Inquiry
+/// <summary>
+/// Domain representation used by the Application layer. EF Core continues to map
+/// the database-first entity in INKED.Infrastructure.Models.Inquiry.
+/// </summary>
+public class Inquiry
 {
     public int InquiryId { get; set; }
-
     public int CustomerId { get; set; }
-
     public int? HandledByUserId { get; set; }
-
     public DateTime DateReceived { get; set; }
-
-    public string InquiryChannel { get; set; } = null!;
-
+    public string InquiryChannel { get; set; } = string.Empty;
     public string? InquiryDetails { get; set; }
-
     public bool NeedsDesignHelp { get; set; }
-
     public DateTime? FirstResponseAt { get; set; }
-
-    public string Outcome { get; set; } = null!;
-
-    public virtual Customer Customer { get; set; } = null!;
-
-    public virtual ICollection<FeasibilityCheck> FeasibilityChecks { get; set; } = new List<FeasibilityCheck>();
-
-    public virtual UserAccount? HandledByUser { get; set; }
-
-    public virtual ICollection<Quotation> Quotations { get; set; } = new List<Quotation>();
+    public string Outcome { get; set; } = string.Empty;
 }
