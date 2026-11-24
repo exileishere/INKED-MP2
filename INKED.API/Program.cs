@@ -5,6 +5,11 @@ using INKED.Application.Interfaces;
 using INKED.Application.Services;
 using INKED.Infrastructure.Repositories;
 using INKED.API.Middleware;
+// Jethro
+using INKED.Application.ProductCategories;
+using INKED.Application.Products;
+using INKED.Application.SizeCharts;
+using INKED.Application.OrderItems;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +30,16 @@ builder.Services.AddScoped<IProductionTeamService, ProductionTeamService>();
 builder.Services.AddScoped<IStaffService, StaffService>();
 builder.Services.AddScoped<ISampleApprovalService, SampleApprovalService>();
 builder.Services.AddScoped<IOrderProductionAssignmentService, OrderProductionAssignmentService>();
+
+// Jethro: ProductCategories, Products, SizeCharts, OrderItems
+builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
+builder.Services.AddScoped<IProductCategoryService, ProductCategoryService>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ISizeChartRepository, SizeChartRepository>();
+builder.Services.AddScoped<ISizeChartService, SizeChartService>();
+builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
+builder.Services.AddScoped<IOrderItemService, OrderItemService>();
 
 // Configure Swagger
 builder.Services.AddEndpointsApiExplorer();
