@@ -1,0 +1,9 @@
+// INKED.API/Configurations/ApplicationServicesInstaller.cs
+// add inside AddApplicationServices():
+//   using INKED.Application.Interfaces;
+//   using INKED.Application.Services;
+
+services.AddScoped<IInquiryService, InquiryService>();
+services.AddScoped<IQuotationService, QuotationService>();
+services.AddScoped<IQuotationItemService, QuotationItemService>();
+services.AddScoped<IFeasibilityCheckService, FeasibilityCheckService>();

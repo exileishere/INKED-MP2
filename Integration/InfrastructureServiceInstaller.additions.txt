@@ -1,0 +1,9 @@
+// INKED.Infrastructure/Configuration/InfrastructureServiceInstaller.cs
+// add inside AddInfrastructureServices(), next to the other repositories:
+//   using INKED.Application.Repositories;
+//   using INKED.Infrastructure.Persistence.Repositories;
+
+services.AddScoped<IInquiryRepository, InquiryRepository>();
+services.AddScoped<IQuotationRepository, QuotationRepository>();
+services.AddScoped<IQuotationItemRepository, QuotationItemRepository>();
+services.AddScoped<IFeasibilityCheckRepository, FeasibilityCheckRepository>();
