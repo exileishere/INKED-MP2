@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using INKED.Infrastructure.Data;
+using INKED.Application.Organizations;
+using INKED.Infrastructure.Organizations;
 // Marco
 using INKED.Application.Interfaces;
 using INKED.Application.Services;
@@ -11,6 +13,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddControllers();
+
+builder.Services.AddScoped<IOrganizationRepository, OrganizationRepository>();
+builder.Services.AddScoped<IOrganizationService, OrganizationService>();
 
 builder.Services.AddDbContext<INKEDDbContext>(options =>
     options.UseSqlServer(
